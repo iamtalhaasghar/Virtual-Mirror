@@ -1,0 +1,15 @@
+Useful Git Commands
+
+git clone "<repo-url>"
+git status
+
+TO PUSH:
+---------
+git add .
+git commit -m "message_to_show"
+git push
+
+---------
+TO PULL:
+---------
+git pull
