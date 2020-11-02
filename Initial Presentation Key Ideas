@@ -1,0 +1,20 @@
+1) Title
+2) Introduction:
+  - Our Project Defined
+	- What is AR
+	- VR is not AR
+3) Problem Solving: 
+	- End User or Customer can try out brand items at home without physically going to store
+  - Customer will know exactly what they are buying
+4) Scope:
+  - Useful for clothing brands
+  - Interior Design
+  - Can also be useful for Makeup brands / outlets
+5) Requirements:
+	- 3D model source asset files ( *.obj , *.fbx , or *.gltf )
+  - Database storage
+  - Android Device / TV
+6) Working:
+  - Brand Owner need to upload asset files
+	- End User Working Process
+	
