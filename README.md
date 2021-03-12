@@ -1,3 +1,3 @@
 # Virtual-Mirror
-Our final year project using AR CORE. Junaid Nawab
+Our final year project using AR CORE.
 
