@@ -3,20 +3,17 @@ package com.example.fyp;
 // Created By Junaid Nawab
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.fyp.fragments.DownloadFragment;
-import com.example.fyp.fragments.HomeFragment;
-import com.example.fyp.fragments.LoginFragment;
-import com.example.fyp.fragments.SearchFragment;
-import com.example.fyp.fragments.SettingFragment;
+import com.example.fyp.fragment.DownloadFragment;
+import com.example.fyp.fragment.HomeFragment;
+import com.example.fyp.fragment.LoginFragment;
+import com.example.fyp.fragment.SearchFragment;
+import com.example.fyp.fragment.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

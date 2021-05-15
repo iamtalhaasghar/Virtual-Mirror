@@ -1,4 +1,4 @@
-package com.example.fyp.fragments;
+package com.example.fyp.fragment;
 // Created By Junaid Nawab
 
 import android.os.Bundle;

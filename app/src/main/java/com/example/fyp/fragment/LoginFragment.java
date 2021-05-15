@@ -1,4 +1,4 @@
-package com.example.fyp.fragments;
+package com.example.fyp.fragment;
 
 import android.os.Bundle;
 
