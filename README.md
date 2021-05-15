@@ -14,7 +14,7 @@ The app will facilitate End User or Customer in a way that he can try out multip
 - For local outlet stores where customers can try the brand items on the fly in front Of LED Displays or using Android apps anywhere, anytime
 
 ## Technologies Used
-- Android SDK (Java)
+- Android SDK 11 (Java)
 - Google AR Core SDK
 - Firebase Storage
 
