@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.fyp.R;
 
 public class DownloadFragment extends Fragment {
-
+    
 
 
     public DownloadFragment() {
