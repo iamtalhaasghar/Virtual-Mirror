@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.example.fyp.Adapter.PopularAdapter;
+import com.example.fyp.PopularModel;
 import com.example.fyp.R;
 
 import java.util.ArrayList;
@@ -29,13 +31,9 @@ public class HomeFragment extends Fragment {
         init(view);
         //Popular
        popularRecyclerview = view.findViewById(R.id.popular_recyclerview);
-       ArrayList<String> popularlist = new ArrayList<>();
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg"); popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg"); popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
-       popularlist.add("https://vkcadda.com/admin_assets/images/vendor/f431e4f5a4ee21dd548382e4509059ca.jpg");
+       ArrayList<PopularModel> popularlist = new ArrayList<>();
+       PopularModel model = new PopularModel("1","https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg","Eye Glasses");
+       popularlist.add(model);
        PopularAdapter adapter = new PopularAdapter(popularlist);
        popularRecyclerview.setHasFixedSize(true);
        popularRecyclerview.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -44,7 +42,10 @@ public class HomeFragment extends Fragment {
 
         //New
         recyclerview_new = view.findViewById(R.id.recyclerview_new);
-        PopularAdapter new_adapter = new PopularAdapter(popularlist);
+        ArrayList<PopularModel> newlist = new ArrayList<>();
+        PopularModel new_model = new PopularModel("2","https://edited.beautybay.com/wp-content/uploads/2019/10/BestPinkLipsticks_Edited_Landscape_1-1-scaled.jpg","LipSticks");
+        newlist.add(new_model);
+        NewAdapter new_adapter = new NewAdapter(newlist);
         recyclerview_new.setHasFixedSize(true);
         recyclerview_new.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerview_new.setAdapter(new_adapter);
