@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_home"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/white">
+                </ImageView>
+            </LinearLayout>
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:id="@+id/home_view_pager"
+                android:adjustViewBounds="true"
+                android:background="#fff"
+                android:layout_height="200dp">
+            </ViewFlipper>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Popular"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/popular_recyclerview"
+                android:layout_marginTop="8dp"
+                tools:itemCount="1"
+                tools:listitem="@layout/list_item_popular" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="New"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerview_new"
+                android:layout_marginTop="8dp"
+                tools:itemCount="1"
+                tools:listitem="@layout/list_item_popular" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</FrameLayout>

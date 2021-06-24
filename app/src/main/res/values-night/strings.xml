@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="login">Login</string>
+    <string name="permission">Permission</string>
+    <string name="english">English</string>
+    <string name="learnmore">Learn more</string>
+    <string name="sendfeedback">Send feedback</string>
+    <string name="downloads">Downloads</string>
+    <string name="setting">Settings</string>
+</resources>
