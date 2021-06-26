@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".WelcomeActivity"></activity>
 
         <meta-data
             android:name="com.google.ar.core"

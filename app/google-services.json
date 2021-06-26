@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377074185689",
+    "firebase_url": "https://fyp-virtual-try-out-app-default-rtdb.firebaseio.com",
+    "project_id": "fyp-virtual-try-out-app",
+    "storage_bucket": "fyp-virtual-try-out-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377074185689:android:cf8a13ef58988cf69155c8",
+        "android_client_info": {
+          "package_name": "com.example.fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377074185689-nlup1vbbjgsbp9bnpctq5b73k51upadb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fyp",
+            "certificate_hash": "eb5103d9d966c018caf1782c364567054434d2ba"
+          }
+        },
+        {
+          "client_id": "377074185689-tqudv3q3del3mcagrrp94cvjlvtb3i2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGHdUzs5G6j60Xkc2C8ia2gQI-TJAohyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377074185689-tqudv3q3del3mcagrrp94cvjlvtb3i2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
