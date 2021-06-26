@@ -15,9 +15,12 @@ import android.widget.ViewFlipper;
 
 import com.example.fyp.Adapter.ShoesAdapter;
 import com.example.fyp.Adapter.GlassesAdapter;
+import com.example.fyp.LipstickAdapter;
 import com.example.fyp.Model.GlassesModel;
+import com.example.fyp.Model.LipstickModel;
 import com.example.fyp.Model.ShoesModel;
 import com.example.fyp.R;
+import com.example.fyp.RegisterActivity;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,7 @@ public class HomeFragment extends Fragment {
     ViewFlipper viewFlipper;
     RecyclerView glassesRecyclerview;
     RecyclerView recyclerview_shoes;
+    RecyclerView recyclerview_lipstick;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,13 +39,13 @@ public class HomeFragment extends Fragment {
         //Glasses
        glassesRecyclerview = view.findViewById(R.id.glasses_recyclerview);
        ArrayList<GlassesModel> popularlist = new ArrayList<>();
-       GlassesModel model = new GlassesModel("1","https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg","Eye Glasses");
+       GlassesModel model = new GlassesModel("1",R.drawable.glasses1,"Eye Glasses");
        popularlist.add(model);
-        GlassesModel model1 = new GlassesModel("2","https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg","Eye Glasses");
+        GlassesModel model1 = new GlassesModel("2",R.drawable.glasses2,"Glasses");
         popularlist.add(model1);
-        GlassesModel model2 = new GlassesModel("3","https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg","Eye Glasses");
+        GlassesModel model2 = new GlassesModel("3",R.drawable.glasses3,"Air Glasses");
         popularlist.add(model2);
-        GlassesModel mode2 = new GlassesModel("4","https://media.self.com/photos/5dd44cf5d0525b0009f5edf6/4:3/w_2560%2Cc_limit/AdobeStock_208000726.jpeg","Eye Glasses");
+        GlassesModel mode2 = new GlassesModel("4",R.drawable.glasses4,"Addidas Glasses");
         popularlist.add(mode2);
 
        GlassesAdapter adapter = new GlassesAdapter(popularlist);
@@ -53,20 +57,32 @@ public class HomeFragment extends Fragment {
         //Shoes
         recyclerview_shoes = view.findViewById(R.id.recyclerview_shoes);
         ArrayList<ShoesModel> shoeslist = new ArrayList<>();
-        ShoesModel shoes1 = new ShoesModel("1","https://edited.beautybay.com/wp-content/uploads/2019/10/BestPinkLipsticks_Edited_Landscape_1-1-scaled.jpg","LipSticks");
+        ShoesModel shoes1 = new ShoesModel("1",R.drawable.shoes1,"Nike Shoes");
         shoeslist.add(shoes1);
-        ShoesModel shoes2 = new ShoesModel("1","https://edited.beautybay.com/wp-content/uploads/2019/10/BestPinkLipsticks_Edited_Landscape_1-1-scaled.jpg","LipSticks");
+        ShoesModel shoes2 = new ShoesModel("2",R.drawable.shoes2,"Addidas Shoes");
         shoeslist.add(shoes2);
-        ShoesModel shoes3 = new ShoesModel("1","https://edited.beautybay.com/wp-content/uploads/2019/10/BestPinkLipsticks_Edited_Landscape_1-1-scaled.jpg","LipSticks");
+        ShoesModel shoes3 = new ShoesModel("3",R.drawable.shoes3,"Bata Shoes");
         shoeslist.add(shoes3);
         ShoesAdapter shoes_adapter = new ShoesAdapter(shoeslist);
         recyclerview_shoes.setHasFixedSize(true);
         recyclerview_shoes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerview_shoes.setAdapter(shoes_adapter);
 
+        //LipStick
+        recyclerview_lipstick = view.findViewById(R.id.recyclerview_lipsticks);
+        ArrayList<LipstickModel> lipsticklist = new ArrayList<>();
+        LipstickModel lipstick1 = new LipstickModel("1",R.drawable.makeup,"Premium Stick");
+        lipsticklist.add(lipstick1);
+        LipstickModel lipstick2 = new LipstickModel("2",R.drawable.makeup2,"New Lipstick");
+        lipsticklist.add(lipstick2);
+        LipstickAdapter lipstick_adapter = new LipstickAdapter(lipsticklist);
+        recyclerview_lipstick.setHasFixedSize(true);
+        recyclerview_lipstick.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerview_lipstick.setAdapter(lipstick_adapter);
+
 
         //ViewFlipper
-        int images[] = {R.drawable.ic_home,R.drawable.ic_home,R.drawable.ic_home};
+        int images[] = {R.drawable.banner1,R.drawable.banner2,R.drawable.banner3};
         for (int image : images) {
             image_slider(image);
         }

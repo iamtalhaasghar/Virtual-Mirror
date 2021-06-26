@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.example.fyp.fragment.DownloadFragment;
 import com.example.fyp.fragment.HomeFragment;
-import com.example.fyp.fragment.LoginFragment;
+import com.example.fyp.fragment.ProfileFragment;
 import com.example.fyp.fragment.SearchFragment;
 import com.example.fyp.fragment.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = new HomeFragment();
                 break;
             case R.id.login_menu:
-                fragment = new LoginFragment();
+                fragment = new ProfileFragment();
                 break;
             case R.id.search_menu:
                 fragment = new SearchFragment();
@@ -63,5 +63,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
         return loadFragment(fragment);
+    }
+    @Override
+    public void onBackPressed(){
+        this.finishAffinity();
     }
 }

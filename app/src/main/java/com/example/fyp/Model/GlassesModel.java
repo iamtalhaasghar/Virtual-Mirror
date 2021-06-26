@@ -2,10 +2,10 @@ package com.example.fyp.Model;
 
 public class GlassesModel {
     String id;
-    String imgpath;
+    int imgpath;
     String imgname;
 
-    public GlassesModel(String id, String imgpath, String imgname) {
+    public GlassesModel(String id, int imgpath, String imgname) {
         this.id = id;
         this.imgpath = imgpath;
         this.imgname = imgname;
@@ -19,11 +19,11 @@ public class GlassesModel {
         this.id = id;
     }
 
-    public String getImgpath() {
+    public int getImgpath() {
         return imgpath;
     }
 
-    public void setImgpath(String imgpath) {
+    public void setImgpath(int imgpath) {
         this.imgpath = imgpath;
     }
 

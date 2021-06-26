@@ -46,7 +46,7 @@ public class AugmentedActivity extends AppCompatActivity {
 
     private ModelRenderable faceRegionsRenderable;
     private Texture faceMeshTexture;
-    Boolean internetavailable =true;
+    Boolean internetavailable =false;
 
     private final HashMap<AugmentedFace, AugmentedFaceNode> faceNodeMap = new HashMap<>();
     @RequiresApi(api = Build.VERSION_CODES.N)

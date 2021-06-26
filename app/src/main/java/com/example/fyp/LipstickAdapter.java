@@ -1,4 +1,4 @@
-package com.example.fyp.Adapter;
+package com.example.fyp;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,36 +11,35 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fyp.AugmentedActivity;
-import com.example.fyp.Model.GlassesModel;
-import com.example.fyp.R;
-import com.squareup.picasso.Picasso;
+import com.example.fyp.Adapter.ShoesAdapter;
+import com.example.fyp.Model.LipstickModel;
+import com.example.fyp.Model.ShoesModel;
 
 import java.util.ArrayList;
 
-public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.ViewHolder> {
-    ArrayList<GlassesModel> glasses_list = new ArrayList();
-    public GlassesAdapter(ArrayList<GlassesModel> popular_list)
+public class LipstickAdapter extends RecyclerView.Adapter<LipstickAdapter.ViewHolder>  {
+    ArrayList<LipstickModel> lipstick_list = new ArrayList();
+    public LipstickAdapter(ArrayList<LipstickModel> lipstick_list)
     {
-        this.glasses_list = popular_list;
+        this.lipstick_list = lipstick_list;
     }
     @NonNull
     @Override
-    public GlassesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LipstickAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-        return new GlassesAdapter.ViewHolder(view);
+        return new LipstickAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GlassesAdapter.ViewHolder holder, int position) {
-        holder.imagename.setText(glasses_list.get(position).getImgname());
-        holder.image.setImageResource(glasses_list.get(position).getImgpath());
+    public void onBindViewHolder(@NonNull LipstickAdapter.ViewHolder holder, int position) {
+        holder.imagename.setText(lipstick_list.get(position).getImgname());
+        holder.image.setImageResource(lipstick_list.get(position).getImgpath());
         try {
             holder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(view.getContext(), "Item clicked at = " + String.valueOf(position), Toast.LENGTH_SHORT).show();
-                    Intent shoeActivityIntent = new Intent(view.getContext(), AugmentedActivity.class);
+                    Intent shoeActivityIntent = new Intent(view.getContext(), FootActivity.class);
                     shoeActivityIntent.putExtra("clickedVal", position);
                     view.getContext().startActivity(shoeActivityIntent);
                 }
@@ -48,6 +47,11 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.ViewHold
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getItemCount() {
+        return lipstick_list.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
@@ -57,9 +61,5 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.ViewHold
             image = itemView.findViewById(R.id.imageView);
             imagename = itemView.findViewById(R.id.imagenametxt);
         }
-    }
-    @Override
-    public int getItemCount() {
-        return glasses_list.size();
     }
 }

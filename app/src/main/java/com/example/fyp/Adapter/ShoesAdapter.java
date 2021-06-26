@@ -11,20 +11,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fyp.AugmentedActivity;
 import com.example.fyp.FootActivity;
-import com.example.fyp.Model.GlassesModel;
 import com.example.fyp.Model.ShoesModel;
 import com.example.fyp.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
-    ArrayList<ShoesModel> new_list = new ArrayList();
-    public ShoesAdapter(ArrayList<ShoesModel> new_list)
+    ArrayList<ShoesModel> shoes_list = new ArrayList();
+    public ShoesAdapter(ArrayList<ShoesModel> shoes_list)
     {
-        this.new_list = new_list;
+        this.shoes_list = shoes_list;
     }
     @NonNull
     @Override
@@ -35,9 +32,8 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String imagepath = new_list.get(position).getImgpath();
-        holder.imagename.setText(new_list.get(position).getImgname());
-        Picasso.get().load(imagepath).placeholder(R.drawable.ic_home).into(holder.image);
+        holder.imagename.setText(shoes_list.get(position).getImgname());
+        holder.image.setImageResource(shoes_list.get(position).getImgpath());
         try {
             holder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -56,7 +52,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return new_list.size();
+        return shoes_list.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
