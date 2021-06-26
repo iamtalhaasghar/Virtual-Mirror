@@ -30,6 +30,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         init(view);
+
+
         //Glasses
        glassesRecyclerview = view.findViewById(R.id.glasses_recyclerview);
        ArrayList<GlassesModel> popularlist = new ArrayList<>();
@@ -49,7 +51,7 @@ public class HomeFragment extends Fragment {
         //
 
         //Shoes
-        recyclerview_shoes = view.findViewById(R.id.recyclerview_new);
+        recyclerview_shoes = view.findViewById(R.id.recyclerview_shoes);
         ArrayList<ShoesModel> shoeslist = new ArrayList<>();
         ShoesModel shoes1 = new ShoesModel("1","https://edited.beautybay.com/wp-content/uploads/2019/10/BestPinkLipsticks_Edited_Landscape_1-1-scaled.jpg","LipSticks");
         shoeslist.add(shoes1);
