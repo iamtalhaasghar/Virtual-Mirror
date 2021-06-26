@@ -35,7 +35,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="Popular"
+                android:text="Glasses"
                 android:layout_margin="10dp"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -53,7 +53,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:text="New"
+                android:text="Shoes"
                 android:layout_margin="10dp"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -64,12 +64,49 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerview_new"
+                android:id="@+id/recyclerview_shoes"
+                android:layout_marginTop="8dp"
+                tools:itemCount="1"
+                tools:listitem="@layout/list_item" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Lipsticks"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerview_lipsticks"
+                android:layout_marginTop="8dp"
+                tools:itemCount="1"
+                tools:listitem="@layout/list_item" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Hats"
+                android:layout_margin="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerview_hats"
                 android:layout_marginTop="8dp"
                 tools:itemCount="1"
                 tools:listitem="@layout/list_item" />
 
         </LinearLayout>
+
 
     </ScrollView>
 
