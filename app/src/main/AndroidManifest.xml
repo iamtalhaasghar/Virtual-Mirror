@@ -3,6 +3,7 @@
     package="com.example.fyp">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP">
+        <meta-data android:name="com.google.ar.core" android:value="optional" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".AugmentedActivity">
+        </activity>
+        <activity android:name=".FootActivity">
         </activity>
     </application>
 

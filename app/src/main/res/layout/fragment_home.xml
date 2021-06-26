@@ -46,10 +46,10 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/popular_recyclerview"
+                android:id="@+id/glasses_recyclerview"
                 android:layout_marginTop="8dp"
                 tools:itemCount="1"
-                tools:listitem="@layout/list_item_popular" />
+                tools:listitem="@layout/list_item" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:id="@+id/recyclerview_new"
                 android:layout_marginTop="8dp"
                 tools:itemCount="1"
-                tools:listitem="@layout/list_item_popular" />
+                tools:listitem="@layout/list_item" />
 
         </LinearLayout>
 
