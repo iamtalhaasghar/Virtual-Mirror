@@ -33,9 +33,8 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull GlassesAdapter.ViewHolder holder, int position) {
-        String imagepath = glasses_list.get(position).getImgpath();
         holder.imagename.setText(glasses_list.get(position).getImgname());
-        Picasso.get().load(imagepath).placeholder(R.drawable.ic_home).into(holder.image);
+        holder.image.setImageResource(glasses_list.get(position).getImgpath());
         try {
             holder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
