@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,11 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fyp.FootActivity;
 import com.example.fyp.Model.ShoesModel;
 import com.example.fyp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
     ArrayList<ShoesModel> shoes_list = new ArrayList();
+
     public ShoesAdapter(ArrayList<ShoesModel> shoes_list)
     {
         this.shoes_list = shoes_list;
@@ -47,6 +53,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> 
         catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
 
@@ -57,10 +64,12 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
         public TextView imagename;
+        public Button addcartbtn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.imageView);
             imagename = itemView.findViewById(R.id.imagenametxt);
+
         }
     }
 }

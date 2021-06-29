@@ -9,8 +9,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,7 +18,6 @@ import com.google.ar.core.TrackingState;
 import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.Scene;
-import com.google.ar.sceneform.assets.RenderableSource;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.rendering.Renderable;
@@ -38,15 +35,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class AugmentedActivity extends AppCompatActivity {
-
-    private static final double MIN_OPENGL_VERSION = 3.0;
+public class LipstickAugmentedActivity extends AppCompatActivity {
+   private static final double MIN_OPENGL_VERSION = 3.0;
 
     private FaceArFragment arFragment;
 
     private ModelRenderable faceRegionsRenderable;
     private Texture faceMeshTexture;
     Boolean internetavailable =false;
+
 
     private final HashMap<AugmentedFace, AugmentedFaceNode> faceNodeMap = new HashMap<>();
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -84,41 +81,29 @@ public class AugmentedActivity extends AppCompatActivity {
         }
         else {
             int clickedPosition = getIntent().getIntExtra("clickedVal", 0);
-            String selectedModel;
-            selectedModel = new String("glasses1.sfb");
+            int selected_texture = R.drawable.makeup;
             switch (clickedPosition) {
                 case 0:
-                    selectedModel = new String("glasses1.sfb");
+                    selected_texture = R.drawable.makeup;
                     break;
                 case 1:
-                    selectedModel = new String("glasses2.sfb");
-                    break;
-                case 2:
-                    selectedModel = new String("glasses3.sfb");
-                    break;
-                case 3:
-                    selectedModel = new String("glasses4.sfb");
-                    break;
-                case 4:
-                    selectedModel = new String("glasses5.sfb");
-
+                    selected_texture = R.drawable.makeup2;
                     break;
                 default:
             }
-            // Load the face regions renderable.
-            ModelRenderable.builder()
-                    .setSource(this, Uri.parse(selectedModel))
+            ModelRenderable
+                    .builder()
+                    .setSource(this,Uri.parse("glasses1.sfb"))
                     .build()
-                    .thenAccept(
-                            modelRenderable -> {
-                                faceRegionsRenderable = modelRenderable;
-                                modelRenderable.setShadowCaster(false);
-                                modelRenderable.setShadowReceiver(false);
-                            });
-
+                    .thenAccept(modelRenderable -> {
+                        Toast.makeText(this,"Build",Toast.LENGTH_SHORT).show();
+                        faceRegionsRenderable = modelRenderable;
+                        modelRenderable.setShadowCaster(false);
+                        modelRenderable.setShadowReceiver(false);
+                    });
             // Load the face mesh texture.
             Texture.builder()
-                    .setSource(this, R.drawable.empty_texture)
+                    .setSource(this, selected_texture)
                     .build()
                     .thenAccept(texture -> faceMeshTexture = texture);
 
@@ -143,7 +128,6 @@ public class AugmentedActivity extends AppCompatActivity {
                                 AugmentedFaceNode faceNode = new AugmentedFaceNode(face);
                                 faceNode.setParent(scene);
                                 faceNode.setLocalScale(new Vector3(0.8f, 0.8f, 0.8f));
-                                faceNode.setFaceRegionsRenderable(faceRegionsRenderable);
                                 faceNode.setFaceMeshTexture(faceMeshTexture);
                                 faceNodeMap.put(face, faceNode);
                             }
@@ -163,7 +147,6 @@ public class AugmentedActivity extends AppCompatActivity {
                     });
 
         }
-
     }
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void buildModel(File file) {

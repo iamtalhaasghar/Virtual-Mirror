@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home">Home</string>
-    <string name="search">Search</string>
+    <string name="cart">Search</string>
     <string name="profile">Login</string>
     <string name="permission">Permission</string>
     <string name="english">English</string>

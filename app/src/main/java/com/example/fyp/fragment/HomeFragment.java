@@ -15,12 +15,11 @@ import android.widget.ViewFlipper;
 
 import com.example.fyp.Adapter.ShoesAdapter;
 import com.example.fyp.Adapter.GlassesAdapter;
-import com.example.fyp.LipstickAdapter;
+import com.example.fyp.Adapter.LipstickAdapter;
 import com.example.fyp.Model.GlassesModel;
 import com.example.fyp.Model.LipstickModel;
 import com.example.fyp.Model.ShoesModel;
 import com.example.fyp.R;
-import com.example.fyp.RegisterActivity;
 
 import java.util.ArrayList;
 
@@ -39,13 +38,13 @@ public class HomeFragment extends Fragment {
         //Glasses
        glassesRecyclerview = view.findViewById(R.id.glasses_recyclerview);
        ArrayList<GlassesModel> popularlist = new ArrayList<>();
-       GlassesModel model = new GlassesModel("1",R.drawable.glasses1,"Eye Glasses");
+       GlassesModel model = new GlassesModel("1",String.valueOf(R.drawable.glasses1),"Eye Glasses","200","0");
        popularlist.add(model);
-        GlassesModel model1 = new GlassesModel("2",R.drawable.glasses2,"Glasses");
+        GlassesModel model1 = new GlassesModel("2",String.valueOf(R.drawable.glasses2),"Glasses","100","0");
         popularlist.add(model1);
-        GlassesModel model2 = new GlassesModel("3",R.drawable.glasses3,"Air Glasses");
+        GlassesModel model2 = new GlassesModel("3",String.valueOf(R.drawable.glasses3),"Air Glasses","150","0");
         popularlist.add(model2);
-        GlassesModel mode2 = new GlassesModel("4",R.drawable.glasses4,"Addidas Glasses");
+        GlassesModel mode2 = new GlassesModel("4",String.valueOf(R.drawable.glasses4),"Addidas Glasses","250","0");
         popularlist.add(mode2);
 
        GlassesAdapter adapter = new GlassesAdapter(popularlist);
@@ -71,9 +70,9 @@ public class HomeFragment extends Fragment {
         //LipStick
         recyclerview_lipstick = view.findViewById(R.id.recyclerview_lipsticks);
         ArrayList<LipstickModel> lipsticklist = new ArrayList<>();
-        LipstickModel lipstick1 = new LipstickModel("1",R.drawable.makeup,"Premium Stick");
+        LipstickModel lipstick1 = new LipstickModel("11",String.valueOf(R.drawable.makeup),"Premium Stick","500","0");
         lipsticklist.add(lipstick1);
-        LipstickModel lipstick2 = new LipstickModel("2",R.drawable.makeup2,"New Lipstick");
+        LipstickModel lipstick2 = new LipstickModel("22",String.valueOf(R.drawable.makeup2),"New Lipstick","200","0");
         lipsticklist.add(lipstick2);
         LipstickAdapter lipstick_adapter = new LipstickAdapter(lipsticklist);
         recyclerview_lipstick.setHasFixedSize(true);
