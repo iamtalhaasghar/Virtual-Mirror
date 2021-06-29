@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import com.example.fyp.fragment.DownloadFragment;
 import com.example.fyp.fragment.HomeFragment;
 import com.example.fyp.fragment.ProfileFragment;
-import com.example.fyp.fragment.SearchFragment;
+import com.example.fyp.fragment.CartFragment;
 import com.example.fyp.fragment.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -55,11 +55,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.login_menu:
                 fragment = new ProfileFragment();
                 break;
-            case R.id.search_menu:
-                fragment = new SearchFragment();
-                break;
-            case R.id.download_menu:
-                fragment = new DownloadFragment();
+            case R.id.cart_menu:
+                fragment = new CartFragment();
                 break;
         }
         return loadFragment(fragment);

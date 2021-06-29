@@ -28,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button signup_btn;
     EditText email_edtxt;
     EditText pass_edtxt;
+    EditText address_edtxt;
+    EditText name_edtxt;
     EditText confirm_pass_edtxt;
     ProgressBar progressBar;
     FirebaseAuth auth;
@@ -38,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         signup_btn = findViewById(R.id.reg_sign_up);
         email_edtxt = findViewById(R.id.register_email_edtxt);
         pass_edtxt = findViewById(R.id.register_pass_edtxt);
+        name_edtxt = findViewById(R.id.register_name);
+        address_edtxt = findViewById(R.id.register_address_edtxt);
         confirm_pass_edtxt = findViewById(R.id.register_confirm_pass_edtxt);
         progressBar = findViewById(R.id.progress_circular);
         signup_btn.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
         assert user != null;
         HashMap<String, Object> map = new HashMap<>();
         map.put("email",email_edtxt.getText().toString());
+        map.put("name",name_edtxt.getText().toString());
+        map.put("address",address_edtxt.getText().toString());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
         reference.child(user.getUid())
                 .setValue(map)
@@ -121,6 +127,16 @@ public class RegisterActivity extends AppCompatActivity {
         else if(pass_edtxt.getText().toString().isEmpty())
         {
             pass_edtxt.setError("Empty");
+            return false;
+        }
+        else if(name_edtxt.getText().toString().isEmpty())
+        {
+            name_edtxt.setError("Empty");
+            return false;
+        }
+        else if(address_edtxt.getText().toString().isEmpty())
+        {
+            address_edtxt.setError("Empty");
             return false;
         }
         else if(confirm_pass_edtxt.getText().toString().isEmpty())

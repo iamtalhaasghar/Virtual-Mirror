@@ -24,7 +24,26 @@
 
         <TextView
             android:layout_width="match_parent"
+            android:text="Name:"
+            android:drawableLeft="@drawable/ic_name"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Name"
+            android:id="@+id/profile_name_edtxt"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
             android:text="Email Address:"
+            android:drawableLeft="@drawable/ic_mail"
             android:layout_marginLeft="20dp"
             android:textSize="20dp"
             android:layout_height="wrap_content">
@@ -38,6 +57,23 @@
             android:layout_height="wrap_content">
         </TextView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="Addresss:"
+            android:drawableLeft="@drawable/ic_address"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Address"
+            android:id="@+id/profile_address_edtxt"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content">
+        </TextView>
 
 
 

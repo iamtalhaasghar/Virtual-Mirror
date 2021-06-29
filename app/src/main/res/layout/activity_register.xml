@@ -30,46 +30,72 @@
         android:background="@drawable/signup"
         android:layout_gravity="center"/>
 
-    <EditText
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/sign"
-        android:hint="Email"
-        android:id="@+id/register_email_edtxt"
-        android:paddingLeft="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sign"
+            android:hint="User Name"
+            android:id="@+id/register_name"
+            android:paddingLeft="20dp" />
 
-    <EditText
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:background="@drawable/sign"
-        android:hint="Password"
-        android:id="@+id/register_pass_edtxt"
-        android:paddingLeft="20dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign"
+            android:id="@+id/register_email_edtxt"
+            android:hint="Email"
+            android:paddingLeft="20dp" />
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign"
+            android:hint="Address"
+            android:id="@+id/register_address_edtxt"
+            android:paddingLeft="20dp" />
 
-    <EditText
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:background="@drawable/sign"
-        android:hint="Confirm Password"
-        android:id="@+id/register_confirm_pass_edtxt"
-        android:paddingLeft="20dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:background="@drawable/sign"
+            android:hint="Password"
+            android:id="@+id/register_pass_edtxt"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
 
-    <Button
-        android:layout_width="320dp"
-        app:cornerRadius="22dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#106e6d"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="Sign Up"
-        android:id="@+id/reg_sign_up"
-        android:textColor="#fff"/>
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:background="@drawable/sign"
+            android:hint="Confirm Password"
+            android:id="@+id/register_confirm_pass_edtxt"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:layout_width="320dp"
+            app:cornerRadius="22dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#106e6d"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Sign Up"
+            android:id="@+id/reg_sign_up"
+            android:textColor="#fff"/>
+
+    </LinearLayout>
+
 
     <ProgressBar
         android:id="@+id/progress_circular"
