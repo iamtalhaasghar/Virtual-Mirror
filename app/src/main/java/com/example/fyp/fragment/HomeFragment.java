@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         //Glasses
        glassesRecyclerview = view.findViewById(R.id.glasses_recyclerview);
        ArrayList<GlassesModel> popularlist = new ArrayList<>();
-       GlassesModel model = new GlassesModel("1",String.valueOf(R.drawable.glasses1),"Eye Glasses","200","0");
+       GlassesModel model = new GlassesModel("1",String.valueOf(R.drawable.glasses1),"Eye Glasses","12","0");
        popularlist.add(model);
         GlassesModel model1 = new GlassesModel("2",String.valueOf(R.drawable.glasses2),"Glasses","100","0");
         popularlist.add(model1);

@@ -1,12 +1,17 @@
 package com.example.fyp.fragment;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,10 +22,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fyp.Adapter.CartAdapter;
+import com.example.fyp.JazzcashPayment;
 import com.example.fyp.LoginActivity;
 import com.example.fyp.Model.GlassesModel;
 import com.example.fyp.R;
@@ -51,8 +59,8 @@ public class CartFragment extends Fragment {
     public static TextView total_txt;
     Button place_order_btn;
     Button clear_cart_btn;
-
-
+    RadioGroup payment_radiogroup;
+    String selectedPaymentgateway = "Cash On Delivery";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,30 +71,85 @@ public class CartFragment extends Fragment {
         total_txt = view.findViewById(R.id.total_txt);
         place_order_btn = view.findViewById(R.id.place_order_btn);
         clear_cart_btn = view.findViewById(R.id.clear_cart_btn);
+        payment_radiogroup = view.findViewById(R.id.payment_gateway_radiobt);
         Log.d("test123", userID);
         viewCartItems = view;
         listReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("Cart");
         InitializeList();
         displayList();
+        payment_radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+                View radioButton = radioGroup.findViewById(radioButtonID);
+                int idx = radioGroup.indexOfChild(radioButton);
+                RadioButton r = (RadioButton) radioGroup.getChildAt(idx);
+                selectedPaymentgateway = r.getText().toString();
+
+            }
+        });
+
         place_order_btn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                UploadOrderData();
+                if(total_txt.getText().toString().equals("Rs0"))
+                {
+                    Toast.makeText(getContext(),"Cart is empty",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if (selectedPaymentgateway.equals("JazzCash")) {
+                        Intent intent = new Intent(getContext(), JazzcashPayment.class);
+                        intent.putExtra("price", "12.00");
+                        startActivity(intent);
+                    } else {
+                        shownotification();
+                        UploadOrderData();
+                    }
+                }
             }
         });
         clear_cart_btn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                clearCart();
-                Toast.makeText(getContext(),"Cart Cleared",Toast.LENGTH_SHORT).show();
+                if(total_txt.getText().toString().equals("Rs0"))
+                {
+                    Toast.makeText(getContext(),"Cart Already Cleared",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    clearCart();
+                    Toast.makeText(getContext(), "Cart Cleared", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return view;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void shownotification() {
+        // Sets an ID for the notification, so it can be updated.
+        int notifyID = 1;
+        String CHANNEL_ID = "my_channel_01";// The id of the channel.// The user-visible name of the channel.
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, "name", importance);
+        Notification notification = new Notification.Builder(getContext())
+                .setContentTitle("Congratualtions!")
+                .setContentText("Your Order has been placed!")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setChannelId(CHANNEL_ID)
+                .build();
+        NotificationManager mNotificationManager =
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.createNotificationChannel(mChannel);
+        mNotificationManager.notify(notifyID , notification);
+    }
+
     private void UploadOrderData() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("userid", userID);
         map.put("items",item_list);
+        map.put("paymentmethod",selectedPaymentgateway);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Orders").push();
         reference.setValue(map)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -149,5 +212,23 @@ public class CartFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         list_view.setLayoutManager(llm);
         list_view.setAdapter(cartAdapter);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(getContext(), "Payment Success", Toast.LENGTH_SHORT).show();
+        // Check that it is the SecondActivity with an OK result
+        if (requestCode == 0 && resultCode == getActivity().RESULT_OK) {
+            // Get String data from Intent
+            String ResponseCode = data.getStringExtra("pp_ResponseCode");
+            System.out.println("DateFn: ResponseCode:" + ResponseCode);
+            if(ResponseCode.equals("000")) {
+                Toast.makeText(getContext(), "Payment Success", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(getContext(), "Payment Failed", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
