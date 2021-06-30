@@ -1,4 +1,4 @@
-# Virtual-Mirror
+# Smart Brand Try It Out Using Augmented Reality
 Our final year project using AR CORE.
 
 ## Team
