@@ -73,18 +73,21 @@
 
         <RadioGroup
             android:layout_width="match_parent"
+            android:id="@+id/payment_gateway_radiobt"
             android:layout_height="wrap_content">
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:text="Cash On Delivery"
                 android:checked="true"
+                android:id="@+id/cash_radiobtn"
                 android:layout_height="wrap_content">
             </RadioButton>
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:text="JazzCash"
+                android:id="@+id/jazzcash_radiobtn"
                 android:layout_height="wrap_content">
             </RadioButton>
 
